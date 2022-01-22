@@ -1849,14 +1849,14 @@ int main(int argc, char *argv[])
         //make FFT plans for continously processing the input
         complexf* input = fft_malloc(fft_size*sizeof(complexf));
         complexf* input_fourier = fft_malloc(fft_size*sizeof(complexf));
-        FFT_PLAN_T* plan_forward = make_fft_c2c(fft_size, input, input_fourier, 1, 1); //forward, do benchmark
+        FFT_PLAN_T* plan_forward = make_fft_c2c(fft_size, input, input_fourier, 1, 0); //forward, do benchmark
 
         complexf* output_fourier = fft_malloc(fft_size*sizeof(complexf));
         complexf* output_1 = fft_malloc(fft_size*sizeof(complexf));
         complexf* output_2 = fft_malloc(fft_size*sizeof(complexf));
         //we create 2x output buffers so that one will preserve the previous overlap:
-        FFT_PLAN_T* plan_inverse_1 = make_fft_c2c(fft_size, output_fourier, output_1, 0, 1); //inverse, do benchmark
-        FFT_PLAN_T* plan_inverse_2 = make_fft_c2c(fft_size, output_fourier, output_2, 0, 1);
+        FFT_PLAN_T* plan_inverse_1 = make_fft_c2c(fft_size, output_fourier, output_1, 0, 0); //inverse, do benchmark
+        FFT_PLAN_T* plan_inverse_2 = make_fft_c2c(fft_size, output_fourier, output_2, 0, 0);
         //we initialize this buffer to 0 as it will be taken as the overlap source for the first time:
         for(int i=0;i<fft_size;i++) iof(plan_inverse_2->output,i)=qof(plan_inverse_2->output,i)=0;
 

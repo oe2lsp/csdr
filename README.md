@@ -1,5 +1,9 @@
 CSDR
 ====
+based on HA7ILM, forked by OE2LSP
+binaries csdr_s, csdr-fm_s, nmux_s to not interfere with other versions used by community
+see CHANGELOG file
+
 
 `csdr` is a command line tool to carry out DSP tasks for Software Defined Radio.
 

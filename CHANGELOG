@@ -1,0 +1,3 @@
+##2022 01 22
+- renamed executables to *_s that they don't interfere with "the german" version
+- changed make_fft_c2c() according to https://github.com/ha7ilm/openwebrx/issues/139#issuecomment-561144667
